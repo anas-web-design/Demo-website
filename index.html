@@ -1080,28 +1080,30 @@ footer{background:var(--ink);padding:60px 0 0;color:#fff}
       </div>
       <div class="contact-form rv" style="transition-delay:.15s">
         <div class="cf-title">Request a Free Quote 👇</div>
-        <div class="fg-row">
-          <div class="fg"><label>Your Full Name *</label><input type="text" id="fn" placeholder="e.g. Rahul Sharma"></div>
-          <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" id="fp" placeholder="+91 98765 43210"></div>
-        </div>
-        <div class="fg"><label>Your Business Type *</label><input type="text" id="fb" placeholder="e.g. Clinic, Retail Store, Restaurant..."></div>
-        <div class="fg">
-          <label>Which Plan Are You Interested In? *</label>
-          <select id="fs">
-            <option value="" disabled selected>Select a plan...</option>
-            <option>Basic - Static Website (₹5,000)</option>
-            <option>Standard - Dynamic Website (₹7,999)</option>
-            <option>Premium / E-commerce (Custom)</option>
-            <option>Landing Page</option>
-            <option>Not Sure — Please Guide Me</option>
-          </select>
-        </div>
-        <div class="fg"><label>Additional Requirements</label><textarea id="fm" placeholder="Tell us more — number of pages, specific features, preferred design style, or any example websites you like..."></textarea></div>
-        <button class="btn btn-amber cf-submit" onclick="submitForm()">
-          <i class="fas fa-paper-plane"></i> Send Request — We Respond Within 2 Hours
-        </button>
-        <div id="form-ok">✅ &nbsp;Thank you! We'll reach out via WhatsApp within 2 hours.</div>
-        <p style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px">Or WhatsApp us directly: <a href="https://wa.me/918882674843" target="_blank" style="color:var(--blue);font-weight:600">+91 88826 74843</a></p>
+        <form id="quoteForm" action="https://formspree.io/f/xreoeonq" method="POST">
+          <div class="fg-row">
+            <div class="fg"><label>Your Full Name *</label><input type="text" id="fn" name="Full Name" placeholder="e.g. Rahul Sharma" required></div>
+            <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" id="fp" name="Phone / WhatsApp" placeholder="+91 98765 43210" required></div>
+          </div>
+          <div class="fg"><label>Your Business Type *</label><input type="text" id="fb" name="Business Type" placeholder="e.g. Clinic, Retail Store, Restaurant..."></div>
+          <div class="fg">
+            <label>Which Plan Are You Interested In? *</label>
+            <select id="fs" name="Plan" required>
+              <option value="" disabled selected>Select a plan...</option>
+              <option>Basic - Static Website (₹5,000)</option>
+              <option>Standard - Dynamic Website (₹7,999)</option>
+              <option>Premium / E-commerce (Custom)</option>
+              <option>Landing Page</option>
+              <option>Not Sure — Please Guide Me</option>
+            </select>
+          </div>
+          <div class="fg"><label>Additional Requirements</label><textarea id="fm" name="Additional Requirements" placeholder="Tell us more — number of pages, specific features, preferred design style, or any example websites you like..."></textarea></div>
+          <button type="submit" class="btn btn-amber cf-submit">
+            <i class="fas fa-paper-plane"></i> Send Request — We Respond Within 2 Hours
+          </button>
+          <div id="form-ok" style="display:none">✅ &nbsp;Thank you! We'll reach out via WhatsApp within 2 hours.</div>
+          <p style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px">Or WhatsApp us directly: <a href="https://wa.me/918882674843" target="_blank" style="color:var(--blue);font-weight:600">+91 88826 74843</a></p>
+        </form>
       </div>
     </div>
   </div>
@@ -1235,19 +1237,35 @@ document.querySelectorAll('.faq-q').forEach(q=>{
   q.addEventListener('click',function(){toggleFaq(this)});
 });
 
-/* FORM SUBMIT */
-function submitForm(){
-  const n=document.getElementById('fn').value.trim();
-  const p=document.getElementById('fp').value.trim();
-  const s=document.getElementById('fs').value;
-  if(!n||!p||!s){alert('Please fill in your Name, Phone number, and select a Plan.');return}
-  const btn=document.querySelector('.cf-submit');
-  btn.disabled=true;
-  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
-  setTimeout(()=>{
-    btn.style.display='none';
-    document.getElementById('form-ok').style.display='block';
-  },1200);
+/* FORM SUBMIT — Formspree */
+const quoteForm = document.getElementById('quoteForm');
+if(quoteForm){
+  quoteForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = quoteForm.querySelector('.cf-submit');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    try {
+      const res = await fetch(quoteForm.action, {
+        method: 'POST',
+        body: new FormData(quoteForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if(res.ok){
+        btn.style.display = 'none';
+        document.getElementById('form-ok').style.display = 'block';
+        quoteForm.reset();
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Request — We Respond Within 2 Hours';
+        alert('Something went wrong. Please WhatsApp us directly at +91 88826 74843');
+      }
+    } catch(err){
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Request — We Respond Within 2 Hours';
+      alert('Network error. Please WhatsApp us directly at +91 88826 74843');
+    }
+  });
 }
 </script>
 </body>
