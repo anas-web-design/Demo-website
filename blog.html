@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Web Designer India — Website Design Tips & SEO Articles</title>
+<link rel="canonical" href="https://webdesignerindia.xyz/blog.html" />
+<meta name="robots" content="index, follow">
+<meta name="description" content="Web Designer India Blog — Website design tips, SEO guides, web development articles in English, Hindi & Hinglish. Learn how to grow your business online.">
+<meta name="keywords" content="web design blog india, website design tips hindi, seo tips india, web development articles, website kaise banaye, web designer india blog">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WJNY045R85"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WJNY045R85');
+</script>
+<style>
+:root{
+  --ink:#0a0e1a;--ink2:#131928;--ink3:#1c2640;
+  --blue:#1847f0;--blue2:#0f35c4;
+  --amber:#f5a623;--amber2:#e8950f;
+  --green:#16c784;--white:#ffffff;
+  --off:#f4f6fb;--muted:#64748b;--border:#e2e8f2;
+  --r:14px;--r-sm:8px;
+  --shadow:0 4px 24px rgba(24,71,240,.13);
+  --shadow-lg:0 16px 56px rgba(24,71,240,.18);
+  --tr:all .28s cubic-bezier(.4,0,.2,1);
+  --font-h:'Syne',sans-serif;--font-b:'DM Sans',sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-b);background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+/* ══ NAVBAR ══ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.96);backdrop-filter:blur(20px);box-shadow:0 2px 24px rgba(0,0,0,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1160px;margin:0 auto;padding:14px 20px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-h)}
+.logo-icon{width:38px;height:38px;border-radius:9px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem}
+.logo-text{font-size:1.1rem;font-weight:800;color:var(--ink)}
+.logo-text em{font-style:normal;color:var(--amber)}
+.nav-links{list-style:none;display:flex;gap:4px}
+.nav-links a{padding:7px 14px;border-radius:7px;font-size:.87rem;font-weight:500;color:#444;transition:var(--tr)}
+.nav-links a:hover,.nav-links a.active{color:var(--blue);background:rgba(24,71,240,.07)}
+.nav-cta a{background:var(--amber);color:#fff;padding:10px 22px;border-radius:50px;font-size:.85rem;font-weight:600;display:inline-flex;align-items:center;gap:7px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;border-radius:7px;border:1px solid var(--border)}
+.hamburger span{width:20px;height:2px;background:var(--ink);border-radius:2px}
+@media(max-width:768px){.hamburger{display:flex}.nav-links,.nav-cta{display:none}}
+.mob-menu{display:none;position:fixed;inset:0;background:#fff;z-index:1000;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--font-h);font-size:1.4rem;font-weight:700;color:var(--ink);padding:10px 30px}
+.mob-close{position:absolute;top:16px;right:16px;border:none;background:var(--off);border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:600}
+
+/* ══ BLOG HERO ══ */
+.blog-hero{background:var(--ink);padding:120px 0 60px;position:relative;overflow:hidden}
+.blog-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 60% 40%,rgba(24,71,240,.25),transparent 65%)}
+.blog-hero-inner{position:relative;z-index:1;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);padding:5px 14px;border-radius:30px;margin-bottom:16px}
+.blog-hero h1{font-family:var(--font-h);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;margin-bottom:14px}
+.blog-hero p{color:rgba(255,255,255,.6);font-size:1rem;max-width:520px;margin:0 auto 28px}
+
+/* ══ AI GENERATE SECTION ══ */
+.ai-section{background:linear-gradient(135deg,#f0f4ff,#fff8ed);border:1px solid rgba(24,71,240,.15);border-radius:var(--r);padding:32px;margin:40px 0 20px;position:relative;overflow:hidden}
+.ai-section::before{content:'✨';position:absolute;right:24px;top:16px;font-size:2.5rem;opacity:.15}
+.ai-section h2{font-family:var(--font-h);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.ai-section p{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+.ai-controls{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+.ai-input-group{flex:1;min-width:200px}
+.ai-input-group label{display:block;font-size:.78rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.ai-input-group input,.ai-input-group select{width:100%;padding:11px 16px;border:1px solid var(--border);border-radius:var(--r-sm);font-family:var(--font-b);font-size:.9rem;outline:none;transition:var(--tr)}
+.ai-input-group input:focus,.ai-input-group select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(24,71,240,.1)}
+.btn-generate{background:var(--blue);color:#fff;border:none;padding:12px 26px;border-radius:50px;font-family:var(--font-b);font-weight:600;font-size:.9rem;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:var(--tr);white-space:nowrap}
+.btn-generate:hover{background:var(--blue2);transform:translateY(-2px)}
+.btn-generate:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* ══ GENERATED ARTICLE PREVIEW ══ */
+#articlePreview{display:none;background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:32px;margin-top:24px;position:relative}
+#articlePreview h3{font-family:var(--font-h);font-size:1.4rem;font-weight:800;color:var(--ink);margin-bottom:8px}
+#articlePreview .art-meta{font-size:.8rem;color:var(--muted);margin-bottom:20px;display:flex;gap:16px;flex-wrap:wrap}
+#articlePreview .art-body{font-size:.95rem;line-height:1.8;color:#444}
+#articlePreview .art-body h4{font-family:var(--font-h);font-size:1.05rem;font-weight:700;color:var(--ink);margin:20px 0 8px}
+#articlePreview .art-body p{margin-bottom:14px}
+#articlePreview .art-body ul{padding-left:20px;margin-bottom:14px}
+#articlePreview .art-body ul li{margin-bottom:6px}
+.art-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.btn-publish{background:var(--green);color:#fff;border:none;padding:11px 24px;border-radius:50px;font-weight:600;font-size:.88rem;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:var(--tr)}
+.btn-publish:hover{background:#12b070;transform:translateY(-2px)}
+.btn-copy{background:var(--off);color:var(--ink);border:1px solid var(--border);padding:11px 24px;border-radius:50px;font-weight:600;font-size:.88rem;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:var(--tr)}
+.btn-copy:hover{background:var(--border)}
+.loading-dots{display:inline-flex;gap:4px;align-items:center}
+.loading-dots span{width:6px;height:6px;border-radius:50%;background:#fff;animation:ld .8s ease-in-out infinite}
+.loading-dots span:nth-child(2){animation-delay:.15s}
+.loading-dots span:nth-child(3){animation-delay:.3s}
+@keyframes ld{0%,80%,100%{transform:scale(0);opacity:.5}40%{transform:scale(1);opacity:1}}
+
+/* ══ BLOG GRID ══ */
+.blog-section{padding:60px 0 90px}
+.blog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px}
+.blog-header h2{font-family:var(--font-h);font-size:1.6rem;font-weight:700;color:var(--ink)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.blog-grid{grid-template-columns:1fr}}
+
+.blog-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:var(--tr);cursor:pointer}
+.blog-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(24,71,240,.2)}
+.bc-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden}
+.bc-body{padding:20px}
+.bc-tag{display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.bc-title{font-family:var(--font-h);font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.35}
+.bc-excerpt{font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.bc-meta{display:flex;align-items:center;justify-content:space-between;font-size:.75rem;color:var(--muted)}
+.bc-meta i{color:var(--blue);margin-right:4px}
+
+/* ══ FULL ARTICLE MODAL ══ */
+.art-modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(10,14,26,.7);backdrop-filter:blur(8px);align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
+.art-modal.open{display:flex}
+.art-modal-inner{background:#fff;border-radius:var(--r);max-width:760px;width:100%;padding:40px;position:relative;margin:auto}
+.art-modal-close{position:absolute;top:16px;right:16px;background:var(--off);border:none;border-radius:8px;padding:8px 14px;cursor:pointer;font-weight:600;font-size:.9rem}
+.art-modal-inner h2{font-family:var(--font-h);font-size:1.7rem;font-weight:800;color:var(--ink);margin-bottom:10px}
+.art-modal-inner .art-meta{font-size:.8rem;color:var(--muted);margin-bottom:24px;display:flex;gap:16px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.art-modal-inner .art-body{font-size:.95rem;line-height:1.85;color:#444}
+.art-modal-inner .art-body h4{font-family:var(--font-h);font-size:1.1rem;font-weight:700;color:var(--ink);margin:22px 0 8px}
+.art-modal-inner .art-body p{margin-bottom:14px}
+.art-modal-inner .art-body ul{padding-left:22px;margin-bottom:14px}
+.art-modal-inner .art-body ul li{margin-bottom:7px}
+
+/* ══ EMPTY STATE ══ */
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state i{font-size:3rem;color:var(--border);margin-bottom:16px;display:block}
+.empty-state p{font-size:.95rem}
+
+/* ══ FOOTER ══ */
+.mini-footer{background:var(--ink);padding:28px 0;text-align:center}
+.mini-footer p{color:rgba(255,255,255,.4);font-size:.82rem}
+.mini-footer a{color:var(--amber);font-weight:600}
+
+/* ══ FLOATS ══ */
+.floats{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:900}
+.fl{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:var(--tr)}
+.fl:hover{transform:translateY(-3px)}
+.fl-wa{background:#25d366}
+.fl-call{background:var(--blue)}
+</style>
+</head>
+<body>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="closeMob()">✕ Close</button>
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="index.html#services" onclick="closeMob()">Pricing</a>
+  <a href="index.html#portfolio" onclick="closeMob()">Our Work</a>
+  <a href="blog.html" onclick="closeMob()" style="color:var(--blue)">Blog</a>
+  <a href="index.html#contact" onclick="closeMob()">Contact</a>
+  <div style="display:flex;gap:10px;margin-top:12px">
+    <a href="tel:+918882674843" style="background:var(--amber);color:#fff;padding:12px 22px;border-radius:50px;font-weight:600"><i class="fas fa-phone"></i> Call Now</a>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><i class="fas fa-code"></i></div>
+      <div class="logo-text">Web<em>Designer</em><span style="color:var(--amber)"> India</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#services">Pricing</a></li>
+      <li><a href="index.html#portfolio">Our Work</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+918882674843"><i class="fas fa-phone"></i> 8882674843</a>
+    </div>
+    <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- Blog Hero -->
+<div class="blog-hero">
+  <div class="wrap blog-hero-inner">
+    <div class="eyebrow"><i class="fas fa-pen-nib"></i> &nbsp;Tips · Guides · SEO · Web Design</div>
+    <h1>Web Design & SEO Blog</h1>
+    <p>Website design tips, SEO guides, and business growth articles — English, Hindi & Hinglish mein. Apna business online le jao! 🚀</p>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="wrap">
+
+  <!-- AI Generate Section -->
+  <div class="ai-section">
+    <h2>✨ AI se Article Generate Karo</h2>
+    <p>Topic likhो — AI automatically SEO-optimized article banayega. Generate karke publish karo!</p>
+    <div class="ai-controls">
+      <div class="ai-input-group" style="flex:2">
+        <label>Article Topic / Keyword</label>
+        <input type="text" id="aiTopic" placeholder="e.g. Website kaise banaye, SEO tips for small business, Affordable web design India..." />
+      </div>
+      <div class="ai-input-group">
+        <label>Language</label>
+        <select id="aiLang">
+          <option value="english">English</option>
+          <option value="hindi">Hindi (हिंदी)</option>
+          <option value="hinglish">Hinglish</option>
+        </select>
+      </div>
+      <div class="ai-input-group">
+        <label>Category</label>
+        <select id="aiCat">
+          <option value="web-design">Web Design</option>
+          <option value="seo">SEO Tips</option>
+          <option value="business">Business Growth</option>
+          <option value="ecommerce">E-commerce</option>
+          <option value="tips">General Tips</option>
+        </select>
+      </div>
+      <button class="btn-generate" id="generateBtn" onclick="generateArticle()">
+        <i class="fas fa-magic"></i> Generate Article
+      </button>
+    </div>
+
+    <!-- Article Preview -->
+    <div id="articlePreview">
+      <h3 id="previewTitle"></h3>
+      <div class="art-meta">
+        <span><i class="fas fa-calendar"></i> <span id="previewDate"></span></span>
+        <span><i class="fas fa-tag"></i> <span id="previewCat"></span></span>
+        <span><i class="fas fa-clock"></i> 5 min read</span>
+        <span><i class="fas fa-globe"></i> <span id="previewLang"></span></span>
+      </div>
+      <div class="art-body" id="previewBody"></div>
+      <div class="art-actions">
+        <button class="btn-publish" onclick="publishArticle()">
+          <i class="fas fa-check-circle"></i> Publish to Blog
+        </button>
+        <button class="btn-copy" onclick="copyArticle()">
+          <i class="fas fa-copy"></i> Copy Text
+        </button>
+        <button class="btn-generate" onclick="generateArticle()" style="background:var(--amber)">
+          <i class="fas fa-redo"></i> Regenerate
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Published Articles -->
+  <div class="blog-section">
+    <div class="blog-header">
+      <h2>📰 Published Articles</h2>
+      <span style="font-size:.85rem;color:var(--muted)" id="articleCount">0 articles</span>
+    </div>
+    <div class="blog-grid" id="blogGrid">
+      <div class="empty-state" style="grid-column:1/-1">
+        <i class="fas fa-pen-nib"></i>
+        <p>Abhi koi article nahi hai.<br>Upar se topic likhkar pehla article generate karo! 🚀</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Article Modal -->
+<div class="art-modal" id="artModal">
+  <div class="art-modal-inner">
+    <button class="art-modal-close" onclick="closeModal()">✕ Close</button>
+    <h2 id="modalTitle"></h2>
+    <div class="art-meta" id="modalMeta"></div>
+    <div class="art-body" id="modalBody"></div>
+    <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--border);text-align:center">
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:14px">Website chahiye? Free quote lo!</p>
+      <a href="index.html#contact" style="background:var(--blue);color:#fff;padding:12px 28px;border-radius:50px;font-weight:600;font-size:.9rem;display:inline-flex;align-items:center;gap:8px"><i class="fas fa-paper-plane"></i> Get Free Quote</a>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Buttons -->
+<div class="floats">
+  <a href="https://wa.me/918882674843" target="_blank" class="fl fl-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="tel:+918882674843" class="fl fl-call" title="Call"><i class="fas fa-phone-alt"></i></a>
+</div>
+
+<!-- Mini Footer -->
+<div class="mini-footer">
+  <p>© 2026 <a href="index.html">Web Designer India</a> · Est. 2022 · <a href="index.html#contact">Get Free Quote</a></p>
+</div>
+
+<script>
+// ═══ MOBILE MENU ═══
+function openMob(){document.getElementById('mobMenu').classList.add('open');document.body.style.overflow='hidden'}
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow=''}
+
+// ═══ STORAGE: Load saved articles ═══
+let articles = [];
+try {
+  const saved = localStorage.getItem('wdi_blog_articles');
+  if(saved) articles = JSON.parse(saved);
+} catch(e){ articles = []; }
+
+let currentArticle = null;
+
+// Category config
+const catConfig = {
+  'web-design': { label:'Web Design', color:'#1847f0', bg:'#eef2ff', emoji:'🎨' },
+  'seo':        { label:'SEO Tips',   color:'#16c784', bg:'#f0fdf8', emoji:'🔍' },
+  'business':   { label:'Business',  color:'#f5a623', bg:'#fff8ed', emoji:'💼' },
+  'ecommerce':  { label:'E-commerce',color:'#8b5cf6', bg:'#f5f3ff', emoji:'🛒' },
+  'tips':       { label:'Tips',      color:'#ef4444', bg:'#fff1f1', emoji:'💡' },
+};
+
+// ═══ AI GENERATE ARTICLE ═══
+async function generateArticle(){
+  const topic = document.getElementById('aiTopic').value.trim();
+  const lang  = document.getElementById('aiLang').value;
+  const cat   = document.getElementById('aiCat').value;
+
+  if(!topic){ alert('Topic likhna zaroori hai!'); return; }
+
+  const btn = document.getElementById('generateBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div> Generating...';
+
+  const langInstructions = {
+    english:  'Write entirely in English. Professional tone.',
+    hindi:    'पूरा आर्टिकल हिंदी में लिखो। सरल और समझने योग्य भाषा में।',
+    hinglish: 'Write in Hinglish (mix of Hindi and English like spoken in India). Friendly and relatable tone. Use Roman script for Hindi words.'
+  };
+
+  const systemPrompt = `You are an expert web design and SEO content writer for "Web Designer India" — an affordable web design studio in Noida, India serving clients worldwide.
+
+Write a detailed, SEO-optimized blog article. Return ONLY a valid JSON object with these exact keys:
+{
+  "title": "Article title (with main keyword)",
+  "excerpt": "2-sentence summary for preview",
+  "body": "Full HTML article body using only <h4>, <p>, <ul>, <li> tags. Include 4-6 sections with headings. Naturally mention Web Designer India services. End with a CTA to contact webdesignerindia.xyz"
+}
+
+${langInstructions[lang]}
+Category: ${cat}
+Article must be 500-700 words. Include relevant keywords naturally. Do not use markdown, only HTML tags listed above.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: `Write a blog article about: "${topic}"` }]
+      })
+    });
+
+    const data = await res.json();
+    const raw = data.content[0].text;
+    const clean = raw.replace(/```json|```/g,'').trim();
+    const parsed = JSON.parse(clean);
+
+    currentArticle = {
+      id: Date.now(),
+      title: parsed.title,
+      excerpt: parsed.excerpt,
+      body: parsed.body,
+      cat: cat,
+      lang: lang,
+      date: new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}),
+      emoji: catConfig[cat].emoji
+    };
+
+    // Show preview
+    document.getElementById('previewTitle').textContent = parsed.title;
+    document.getElementById('previewDate').textContent = currentArticle.date;
+    document.getElementById('previewCat').textContent = catConfig[cat].label;
+    document.getElementById('previewLang').textContent = lang.charAt(0).toUpperCase()+lang.slice(1);
+    document.getElementById('previewBody').innerHTML = parsed.body;
+    document.getElementById('articlePreview').style.display = 'block';
+    document.getElementById('articlePreview').scrollIntoView({behavior:'smooth',block:'start'});
+
+  } catch(err){
+    alert('Article generate nahi hua. Network check karo ya dobara try karo.');
+    console.error(err);
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '<i class="fas fa-magic"></i> Generate Article';
+}
+
+// ═══ PUBLISH ARTICLE ═══
+function publishArticle(){
+  if(!currentArticle) return;
+  articles.unshift(currentArticle);
+  try{ localStorage.setItem('wdi_blog_articles', JSON.stringify(articles)); }catch(e){}
+  renderGrid();
+  document.getElementById('articlePreview').style.display = 'none';
+  document.getElementById('aiTopic').value = '';
+  currentArticle = null;
+  window.scrollTo({top: document.querySelector('.blog-section').offsetTop - 80, behavior:'smooth'});
+}
+
+// ═══ COPY ARTICLE ═══
+function copyArticle(){
+  if(!currentArticle) return;
+  const text = currentArticle.title + '\n\n' + document.getElementById('previewBody').innerText;
+  navigator.clipboard.writeText(text).then(()=>alert('Article copied to clipboard!')).catch(()=>alert('Copy nahi hua, manually select karo.'));
+}
+
+// ═══ RENDER GRID ═══
+function renderGrid(){
+  const grid = document.getElementById('blogGrid');
+  const count = document.getElementById('articleCount');
+  count.textContent = articles.length + ' article' + (articles.length!==1?'s':'');
+
+  if(articles.length === 0){
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><i class="fas fa-pen-nib"></i><p>Abhi koi article nahi hai.<br>Upar se topic likhkar pehla article generate karo! 🚀</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = articles.map((a,i) => {
+    const cfg = catConfig[a.cat] || catConfig['tips'];
+    return `
+    <div class="blog-card" onclick="openModal(${i})">
+      <div class="bc-thumb" style="background:${cfg.bg}">
+        <span style="font-size:3.5rem">${a.emoji}</span>
+      </div>
+      <div class="bc-body">
+        <span class="bc-tag" style="background:${cfg.bg};color:${cfg.color}">${cfg.label}</span>
+        <div class="bc-title">${a.title}</div>
+        <div class="bc-excerpt">${a.excerpt}</div>
+        <div class="bc-meta">
+          <span><i class="fas fa-calendar"></i>${a.date}</span>
+          <span><i class="fas fa-clock"></i>5 min read</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══ OPEN MODAL ═══
+function openModal(idx){
+  const a = articles[idx];
+  const cfg = catConfig[a.cat] || catConfig['tips'];
+  document.getElementById('modalTitle').textContent = a.title;
+  document.getElementById('modalMeta').innerHTML = `
+    <span><i class="fas fa-calendar"></i>${a.date}</span>
+    <span><i class="fas fa-tag"></i>${cfg.label}</span>
+    <span><i class="fas fa-clock"></i>5 min read</span>
+    <span><i class="fas fa-globe"></i>${a.lang}</span>`;
+  document.getElementById('modalBody').innerHTML = a.body;
+  document.getElementById('artModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(){
+  document.getElementById('artModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Enter key to generate
+document.getElementById('aiTopic').addEventListener('keydown', e => {
+  if(e.key === 'Enter') generateArticle();
+});
+
+// Init
+renderGrid();
+</script>
+</body>
+</html>
