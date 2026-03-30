@@ -291,18 +291,23 @@ p{line-height:1.75;color:var(--muted)}
 /* ══════════════════════════════════
    URGENCY TOPBAR
 ══════════════════════════════════ */
-.urgency-bar{background:linear-gradient(90deg,#92400e,var(--amber),#92400e);background-size:300% 100%;animation:shimmer 3s ease infinite;padding:0;text-align:center;font-size:.82rem;font-weight:600;color:#fff;line-height:1;overflow:hidden;position:fixed;top:0;left:0;right:0;z-index:1000}
+.urgency-bar{background:linear-gradient(90deg,#92400e,var(--amber),#92400e);background-size:300% 100%;animation:shimmer 3s ease infinite;padding:0;text-align:center;font-size:.82rem;font-weight:600;color:#fff;line-height:1;overflow:hidden;position:fixed;top:0;left:0;right:0;z-index:1000;transition:transform .35s ease}
+.urgency-bar.hidden{transform:translateY(-100%)}
 @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .urgency-bar strong{color:#fff;font-weight:800}
 .urgency-bar a{color:#fff;text-decoration:underline;font-weight:700}
-.urgency-bar-inner{display:flex;align-items:center;justify-content:center;gap:0;padding:9px 16px;flex-wrap:nowrap;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media(max-width:600px){.urgency-bar-inner{font-size:.72rem;padding:7px 12px}}
+.urgency-bar-inner{display:flex;width:max-content;animation:urgency-scroll 20s linear infinite;padding:9px 0;white-space:nowrap}
+.urgency-bar-inner:hover{animation-play-state:paused}
+.ubar-item{padding:0 48px;border-right:1px solid rgba(255,255,255,.25);display:inline-flex;align-items:center;gap:8px}
+.ubar-item:last-child{border-right:none}
+@keyframes urgency-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media(max-width:600px){.urgency-bar-inner{font-size:.72rem;animation-duration:15s}}
 
 /* ══════════════════════════════════
    NAVBAR
 ══════════════════════════════════ */
-#nav{position:fixed;top:38px;left:0;right:0;z-index:999;transition:var(--tr)}
-#nav.scrolled{top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(20px);box-shadow:0 2px 24px rgba(0,0,0,.08)}
+#nav{position:fixed;left:0;right:0;z-index:999;transition:top .35s ease,background .3s ease,box-shadow .3s ease}
+#nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);box-shadow:0 2px 24px rgba(0,0,0,.08)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1160px;margin:0 auto;padding:16px 20px;transition:padding .3s}
 #nav.scrolled .nav-inner{padding:12px 20px}
 
@@ -334,10 +339,10 @@ p{line-height:1.75;color:var(--muted)}
 /* ══════════════════════════════════
    HERO
 ══════════════════════════════════ */
-#hero{padding-top:160px;padding-bottom:80px;background:var(--ink);position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center}
+#hero{padding-top:160px;padding-bottom:80px;background:var(--ink);position:relative;overflow:visible;display:flex;flex-direction:column}
 .hero-mesh{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 60% 40%,rgba(24,71,240,.25) 0%,transparent 65%),radial-gradient(ellipse 50% 50% at 10% 80%,rgba(245,166,35,.08) 0%,transparent 60%)}
 .hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:55px 55px}
-.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;width:100%;max-width:1160px;margin:0 auto;padding:0 20px}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;width:100%;max-width:1160px;margin:0 auto;padding:0 20px 40px}
 
 /* Hero left */
 .hero-l .eyebrow{color:var(--amber);background:rgba(245,166,35,.12);border-color:rgba(245,166,35,.3)}
@@ -357,8 +362,8 @@ p{line-height:1.75;color:var(--muted)}
 .hero-stars{color:var(--amber);font-size:.85rem}
 
 /* Hero right – Live Site Preview */
-.hero-r{position:relative;display:flex;justify-content:center}
-.device-frame{width:100%;max-width:440px;background:#0d1117;border-radius:18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 0 1px rgba(24,71,240,.25);animation:bobble 5s ease-in-out infinite}
+.hero-r{position:relative;display:flex;justify-content:center;align-items:center;overflow:visible}
+.device-frame{width:100%;max-width:400px;background:#0d1117;border-radius:18px;border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.5),0 0 0 1px rgba(24,71,240,.25);animation:bobble 5s ease-in-out infinite}
 @keyframes bobble{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 .device-bar{background:#161b22;padding:11px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.06)}
 .device-dots{display:flex;gap:5px}
@@ -389,10 +394,10 @@ p{line-height:1.75;color:var(--muted)}
 .ms-stat-l{font-size:.48rem;color:#888}
 
 /* Floating badge */
-.hero-badge{position:absolute;background:#fff;border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:9px;font-size:.78rem;font-weight:700;color:var(--ink);box-shadow:0 10px 32px rgba(0,0,0,.22);white-space:nowrap}
+.hero-badge{position:absolute;background:#fff;border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:9px;font-size:.78rem;font-weight:700;color:var(--ink);box-shadow:0 10px 32px rgba(0,0,0,.22);white-space:nowrap;z-index:10}
 .hb-ic{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#fff;flex-shrink:0}
-.hb1{top:5%;left:-36px;animation:fl1 3.8s ease-in-out infinite}
-.hb2{bottom:10%;right:-24px;animation:fl2 4.2s ease-in-out .6s infinite}
+.hb1{top:5%;left:-10px;animation:fl1 3.8s ease-in-out infinite}
+.hb2{bottom:10%;right:-10px;animation:fl2 4.2s ease-in-out .6s infinite}
 @keyframes fl1{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(-3deg)}}
 @keyframes fl2{0%,100%{transform:translateY(0) rotate(2deg)}50%{transform:translateY(-10px) rotate(2deg)}}
 
@@ -642,14 +647,13 @@ footer{background:var(--ink);padding:60px 0 0;color:#fff}
 }
 @media(max-width:768px){
   .sec{padding:60px 0}
-  #hero{padding-top:130px}
-  .hero-inner{grid-template-columns:1fr;text-align:center;gap:36px}
+  #hero{padding-bottom:50px;overflow:hidden}
+  .hero-inner{grid-template-columns:1fr;text-align:center;gap:36px;padding:80px 20px 20px}
   .hero-sub,.hero-price-strip{margin-left:auto;margin-right:auto}
   .hero-btns{justify-content:center}
   .hero-proof{justify-content:center}
   .hero-r{display:none}
   .urgency-bar{font-size:.72rem}
-  #nav{top:34px}
   .nav-links,.nav-cta .btn{display:none}
   .hamburger{display:flex}
   .why-grid,.testi-grid,.port-grid{grid-template-columns:1fr}
@@ -674,9 +678,22 @@ footer{background:var(--ink);padding:60px 0 0;color:#fff}
 </head>
 <body>
 
-<!-- ════ URGENCY TOP BAR ════ -->
+<!-- ════ URGENCY BAR ════ -->
 <div class="urgency-bar" id="ubar">
-  <div class="urgency-bar-inner">🔥 <strong>&nbsp;Limited Offer:</strong>&nbsp; Static Websites from <strong>₹5,000</strong> &nbsp;·&nbsp; Est. 2022 &nbsp;·&nbsp; 24×7 Support &nbsp;·&nbsp; Call Now: <a href="tel:+918882674843">+91 88826 74843</a></div>
+  <div class="urgency-bar-inner">
+    <span class="ubar-item">🔥 <strong>Limited Offer:</strong> Static Websites from <strong>₹5,000</strong></span>
+    <span class="ubar-item">⚡ <strong>7 Day</strong> Delivery Guaranteed</span>
+    <span class="ubar-item">🌍 Serving India, USA, UK, UAE &amp; Worldwide</span>
+    <span class="ubar-item">📞 Call Now: <a href="tel:+918882674843">+91 88826 74843</a></span>
+    <span class="ubar-item">✅ Est. 2022 · 200+ Websites Delivered</span>
+    <span class="ubar-item">💬 24×7 WhatsApp Support</span>
+    <span class="ubar-item">🔥 <strong>Limited Offer:</strong> Static Websites from <strong>₹5,000</strong></span>
+    <span class="ubar-item">⚡ <strong>7 Day</strong> Delivery Guaranteed</span>
+    <span class="ubar-item">🌍 Serving India, USA, UK, UAE &amp; Worldwide</span>
+    <span class="ubar-item">📞 Call Now: <a href="tel:+918882674843">+91 88826 74843</a></span>
+    <span class="ubar-item">✅ Est. 2022 · 200+ Websites Delivered</span>
+    <span class="ubar-item">💬 24×7 WhatsApp Support</span>
+  </div>
 </div>
 
 <!-- ════ NAVBAR ════ -->
@@ -1380,23 +1397,39 @@ footer{background:var(--ink);padding:60px 0 0;color:#fff}
 </div>
 
 <script>
-/* NAVBAR */
-const nav=document.getElementById('nav');
-const ubar=document.querySelector('.urgency-bar');
-function setNavPos(){
-  const uh=ubar?ubar.offsetHeight:38;
-  if(window.scrollY>uh+10){
-    nav.classList.add('scrolled');
-    nav.style.top='0';
-  } else {
-    nav.classList.remove('scrolled');
-    nav.style.top=(ubar?ubar.offsetHeight:38)+'px';
-  }
-  document.getElementById('backTop').style.display=window.scrollY>400?'flex':'none';
+/* NAVBAR + URGENCY BAR */
+const nav = document.getElementById('nav');
+const ubar = document.getElementById('ubar');
+const hero = document.getElementById('hero');
+
+function initLayout() {
+  const uh = ubar.offsetHeight;
+  const nh = nav.offsetHeight;
+  // Navbar sits just below urgency bar
+  nav.style.top = uh + 'px';
+  // Hero padding = urgency bar + navbar + breathing room
+  hero.style.paddingTop = (uh + nh + 24) + 'px';
 }
-window.addEventListener('scroll',setNavPos);
-window.addEventListener('resize',setNavPos);
-setNavPos();
+
+window.addEventListener('scroll', () => {
+  const uh = ubar.offsetHeight;
+  if (window.scrollY > uh) {
+    // Urgency bar scrolled out — navbar moves to top
+    ubar.classList.add('hidden');
+    nav.style.top = '0';
+    nav.classList.add('scrolled');
+  } else {
+    // Urgency bar visible — navbar below it
+    ubar.classList.remove('hidden');
+    nav.style.top = uh + 'px';
+    nav.classList.remove('scrolled');
+  }
+  document.getElementById('backTop').style.display = window.scrollY > 400 ? 'flex' : 'none';
+});
+
+window.addEventListener('resize', initLayout);
+window.addEventListener('load', initLayout);
+initLayout();
 
 /* MOBILE MENU */
 function openMob(){document.getElementById('mobMenu').classList.add('open');document.body.style.overflow='hidden'}
